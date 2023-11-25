@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanzamiento de Camisetas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .start-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999; /* Asegura que esté en la parte superior */
+        }
+
+        .start-screen-text {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 2em;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Resplandor blanco */
+            cursor: pointer;
+        }
+
+        video {
+            width: 100%;
+            max-width: 45%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #fff;
+            font-size: 2em;
+            width: 100%;
+            text-shadow: 0 0 10px rgba(0, 0, 255, 0.8); /* Resplandor azul */
+        }
+
+        .logo {
+            position: absolute;
+            top: 20%;
+            left: 60%;
+            transform: translateX(-50%);
+        }
+
+        .logo img {
+            max-width: 50%;
+            height: auto;
+        }
+
+        @media screen and (max-width: 767px) {
+            .overlay-text {
+                top: 10%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="start-screen" onclick="startVideos()">
+        <div class="start-screen-text">Haz clic aquí para comenzar</div>
+    </div>
+
+    <div class="logo">
+        <img src="logo.png" alt="Logo" width="852" height="441">
+    </div>
+
+    <video id="video1" autoplay loop muted playsinline>
+        <source src="Black.mp4" type="video/mp4">
+        Tu navegador no soporta el tag de video.
+    </video>
+    <div class="overlay-text">Coming Soon</div>
+
+    <video id="video2" autoplay loop muted playsinline>
+        <source src="White.mp4" type="video/mp4">
+        Tu navegador no soporta el tag de video.
+    </video>
+    <div class="overlay-text">Coming Soon</div>
+
+    <script>
+        function startVideos() {
+            var startScreen = document.querySelector('.start-screen');
+            startScreen.style.display = 'none';
+
+            var video1 = document.getElementById('video1');
+            var video2 = document.getElementById('video2');
+
+            video1.play();
+            video2.play();
+        }
+    </script>
+</body>
+</html>
